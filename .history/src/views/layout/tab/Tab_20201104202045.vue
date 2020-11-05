@@ -1,0 +1,42 @@
+<template>
+<div class="all">这是标签页
+    <div class="box">
+        <el-tabs v-model="activeName" @tab-click="handleClick">
+            <el-tab-pane label="用户管理" name="first">用户管理</el-tab-pane>
+            <el-tab-pane label="配置管理" name="second">配置管理</el-tab-pane>
+            <el-tab-pane label="角色管理" name="third">角色管理</el-tab-pane>
+            <el-tab-pane label="定时任务补偿" name="fourth">定时任务补偿</el-tab-pane>
+        </el-tabs>
+    </div>
+</div>
+</template>
+
+<script>
+export default {
+    name: '',
+    props: {},
+    data() {
+        return {}
+    },
+    components: {},
+    methods: {},
+    mounted() {},
+    computed: {},
+    watch: {}
+}
+</script>
+
+<style lang="scss" scoped>
+.all {
+    height: 100vh;
+    background: rgb(231, 233, 236);
+
+}
+
+.box {
+    width: 95%;
+    margin: 0 auto;
+    background: white;
+
+}
+</style>
