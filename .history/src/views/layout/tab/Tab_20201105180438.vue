@@ -8,17 +8,12 @@
         </el-tabs>
         <div class="table">
             <el-table :data="tableData" :show-header="false">
-                <el-table-column prop="content" width="672">
+                <el-table-column prop="content" width="650">
                 </el-table-column>
-                <el-table-column prop="time" width="300">
-                </el-table-column>
-                <el-table-column prop="btn">
-                    <slot>
-                        <el-button type="primary" style=" margin-left: 20px;">标记已读</el-button>
-                    </slot>
+                <el-table-column prop="time" width="650">
                 </el-table-column>
             </el-table>
-            <el-button type="danger" style="margin-top: 20px;">全部删除</el-button>
+            <el-button>全部删除</el-button>
         </div>
     </div>
 
@@ -79,12 +74,10 @@ export default {
     margin: 0 auto;
     // background: rgb(194, 135, 135);
     height: 500px;
-
 }
 
 .table {
     height: 200px;
     // background: goldenrod;
-
 }
 </style>

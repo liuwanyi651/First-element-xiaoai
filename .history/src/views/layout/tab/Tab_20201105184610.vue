@@ -14,7 +14,7 @@
                 </el-table-column>
                 <el-table-column prop="btn">
                     <slot>
-                        <el-button type="primary" style=" margin-left: 20px;">标记已读</el-button>
+                        <el-button type="primary">主要按钮</el-button>
                     </slot>
                 </el-table-column>
             </el-table>

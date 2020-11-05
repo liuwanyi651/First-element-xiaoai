@@ -45,8 +45,7 @@ export default {
     data() {
         return {
             ruleForm: {
-                name: '',
-                region: ''
+                name: ''
 
             },
             rules: {
@@ -54,31 +53,12 @@ export default {
                     required: true,
                     message: '请输入活动名称',
                     trigger: 'blur'
-                }],
-                region: [{
-                    required: true,
-                    message: '请选择活动区域',
-                    // trigger: 'change'
-                }],
+                }]
             }
         }
     },
     components: {},
-    methods: {
-        submitForm(formName) {
-            this.$refs[formName].validate((valid) => {
-                if (valid) {
-                    alert('submit!');
-                } else {
-                    console.log('error submit!!');
-                    return false;
-                }
-            });
-        },
-        resetForm(formName) {
-            this.$refs[formName].resetFields();
-        }
-    },
+    methods: {},
     mounted() {},
     computed: {},
     watch: {}

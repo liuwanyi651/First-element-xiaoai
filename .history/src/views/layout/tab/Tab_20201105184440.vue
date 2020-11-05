@@ -10,12 +10,12 @@
             <el-table :data="tableData" :show-header="false">
                 <el-table-column prop="content" width="672">
                 </el-table-column>
-                <el-table-column prop="time" width="300">
-                </el-table-column>
-                <el-table-column prop="btn">
+                <el-table-column prop="time" width="672">
                     <slot>
-                        <el-button type="primary" style=" margin-left: 20px;">标记已读</el-button>
+                        <el-button type="primary" style=" margin-left: 500px;">主要按钮</el-button>
                     </slot>
+                </el-table-column>
+                <el-table-column prop="content" width="672">
                 </el-table-column>
             </el-table>
             <el-button type="danger" style="margin-top: 20px;">全部删除</el-button>

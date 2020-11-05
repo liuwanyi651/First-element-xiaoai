@@ -1,27 +1,22 @@
 <template>
 <div class="all">
     <div class="box">
-        <el-tabs v-model="activeName" @tab-click="handleClick">
-            <el-tab-pane label="未读消息" name="first"></el-tab-pane>
-            <el-tab-pane label="已读消息" name="second"></el-tab-pane>
-            <el-tab-pane label="回收站" name="third"></el-tab-pane>
-        </el-tabs>
-        <div class="table">
-            <el-table :data="tableData" :show-header="false">
-                <el-table-column prop="content" width="672">
-                </el-table-column>
-                <el-table-column prop="time" width="300">
-                </el-table-column>
-                <el-table-column prop="btn">
-                    <slot>
-                        <el-button type="primary" style=" margin-left: 20px;">标记已读</el-button>
-                    </slot>
-                </el-table-column>
-            </el-table>
-            <el-button type="danger" style="margin-top: 20px;">全部删除</el-button>
+        <div>
+            <el-tabs v-model="activeName" @tab-click="handleClick">
+                <el-tab-pane label="未读消息" name="first"></el-tab-pane>
+                <el-tab-pane label="已读消息" name="second"></el-tab-pane>
+                <el-tab-pane label="回收站" name="third"></el-tab-pane>
+            </el-tabs>
         </div>
-    </div>
+        <div>
+            <el-card class="box-card">
+                <div v-for="o in 4" :key="o" class="text item">
+                    {{'列表内容 ' + o }}
+                </div>
+            </el-card>
+        </div>
 
+    </div>
 </div>
 </template>
 
@@ -77,9 +72,8 @@ export default {
 .box {
     width: 100%;
     margin: 0 auto;
-    // background: rgb(194, 135, 135);
+    background: rgb(247, 243, 243);
     height: 500px;
-
 }
 
 .table {
