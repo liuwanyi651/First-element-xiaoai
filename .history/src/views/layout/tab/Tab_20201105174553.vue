@@ -29,7 +29,7 @@ export default {
             activeName: 'first',
             tableData: [{
                 id: 1,
-                content: "[系统通知]该系统将于今晚凌晨2点到5点进行升级维护llll",
+                content: "[系统通知]该系统将于今晚凌晨2点到5点进行升级维护",
                 time: "2020-04-19 20:00:00",
 
             }, {
