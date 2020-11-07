@@ -17,15 +17,9 @@ export default {
             chartData: {
                 columns: ['分类', '数量'],
                 rows: [{
-                        '分类': 'vue',
-                        '数量': 3
-                    },
-                    {
-                        '分类': 'react',
-                        '数量': 2
-                    }
-                ],
-
+                    '分类': vue,
+                    '数量': 3
+                }]
             }
         }
     },

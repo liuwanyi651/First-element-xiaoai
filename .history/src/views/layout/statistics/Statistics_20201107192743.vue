@@ -1,6 +1,5 @@
 <template>
-<div>
-    <ve-pie :data="chartData"></ve-pie>
+<div>这是统计页面
 </div>
 </template>
 
@@ -12,29 +11,14 @@ export default {
     name: '',
     props: {},
     data() {
-        return {
-            arr: [],
-            chartData: {
-                columns: ['分类', '数量'],
-                rows: [{
-                        '分类': 'vue',
-                        '数量': 3
-                    },
-                    {
-                        '分类': 'react',
-                        '数量': 2
-                    }
-                ],
-
-            }
-        }
+        return {}
     },
     components: {},
     methods: {
         getData() {
             axios.get('/api/article/allArticle ').then(res => {
-                this.arr = res.data.data
                 console.log(res.data.data)
+                this.arr = res.data.data
             }).catch(err => {
                 console.log(err)
             })

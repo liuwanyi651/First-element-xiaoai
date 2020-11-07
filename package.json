@@ -13,6 +13,7 @@
     "dayjs": "^1.9.4",
     "echarts": "^4.9.0",
     "element-ui": "^2.14.0",
+    "lodash": "^4.17.20",
     "mavon-editor": "^2.9.0",
     "v-charts": "^1.19.0",
     "vue": "^2.6.11",
