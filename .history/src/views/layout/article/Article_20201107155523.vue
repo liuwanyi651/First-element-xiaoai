@@ -193,8 +193,7 @@ export default {
                 if (res.data.code === 200) {
                     console.log(res.data);
                     this.$message.success("发布成功");
-                    // this.$router.push("/publish");
-                    this.$refs.ruleForm.resetFields()
+                    this.$router.push("/publish");
                 } else if (res.data.code === 500) {
                     this.$message.error("发布失败请检查");
                 }

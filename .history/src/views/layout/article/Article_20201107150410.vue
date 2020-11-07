@@ -96,6 +96,7 @@ export default {
                 source: '',
                 star: '',
                 date: '',
+
             },
             rules: {
                 title: [{
@@ -194,7 +195,6 @@ export default {
                     console.log(res.data);
                     this.$message.success("发布成功");
                     // this.$router.push("/publish");
-                    this.$refs.ruleForm.resetFields()
                 } else if (res.data.code === 500) {
                     this.$message.error("发布失败请检查");
                 }
@@ -203,7 +203,9 @@ export default {
             })
         }
     },
-    mounted() {},
+    mounted() {
+        // this.getArticle()
+    },
     computed: {},
     watch: {}
 }

@@ -13,8 +13,8 @@
             <el-form-item label="文章标题" prop="title">
                 <el-input v-model="ruleForm.title"></el-input>
             </el-form-item>
-            <el-form-item label="文章摘要" prop="abstract">
-                <el-input v-model="ruleForm.abstract"></el-input>
+            <el-form-item label="文章摘要" prop="digest">
+                <el-input v-model="ruleForm.digest"></el-input>
             </el-form-item>
             <div class="box">
                 <div>
@@ -68,13 +68,13 @@
             </div>
         </el-form>
     </div>
-    <!---在具体的组件里html里定义挂载点-->
+    <!---在具体的组件里html里定义挂载点-->>
     <div id="main">
-        <mavon-editor v-model="text" />
+        <mavon-editor v-model="value" />
     </div>
-    <!--发布-->
+    <!--发布-->>
     <div class="btn">
-        <el-button type="primary" @click="getArticle">发布</el-button>
+        <el-button type="primary">发布</el-button>
     </div>
 </div>
 </template>
@@ -87,15 +87,16 @@ export default {
     props: {},
     data() {
         return {
-            text: '',
+            value: '',
             ruleForm: {
                 title: '',
-                abstract: '',
+                digest: '',
                 author: '',
                 category: '',
                 source: '',
                 star: '',
                 date: '',
+
             },
             rules: {
                 title: [{
@@ -103,7 +104,7 @@ export default {
                     message: '请输入标题',
                     trigger: 'blur'
                 }],
-                abstract: [{
+                digest: [{
                     required: true,
                     message: '请输入文章摘要',
                     trigger: 'blur'
@@ -180,26 +181,14 @@ export default {
         },
         getArticle() {
             axios.post("/api/article/create", {
-                title: this.ruleForm.title,
+                title: this.form.title,
                 text: this.text,
-                abstract: this.ruleForm.abstract,
-                author: this.ruleForm.author,
-                category: this.ruleForm.category,
-                source: this.ruleForm.source,
-                star: this.ruleForm.star,
-                date: this.ruleForm.date,
-            }).then((res) => {
-                // console.log(res.data); 这是查看状态码
-                if (res.data.code === 200) {
-                    console.log(res.data);
-                    this.$message.success("发布成功");
-                    // this.$router.push("/publish");
-                    this.$refs.ruleForm.resetFields()
-                } else if (res.data.code === 500) {
-                    this.$message.error("发布失败请检查");
-                }
-            }).catch((res) => {
-                console.log(err);
+                abstract: this.form.abstract,
+                author: this.form.author,
+                category: this.form.category,
+                source: this.form.source,
+                star: this.form.star,
+                date: this.form.date,
             })
         }
     },

@@ -72,9 +72,9 @@
     <div id="main">
         <mavon-editor v-model="text" />
     </div>
-    <!--发布-->
+    <!--发布-->>
     <div class="btn">
-        <el-button type="primary" @click="getArticle">发布</el-button>
+        <el-button type="primary">发布</el-button>
     </div>
 </div>
 </template>
@@ -96,6 +96,7 @@ export default {
                 source: '',
                 star: '',
                 date: '',
+
             },
             rules: {
                 title: [{
@@ -181,7 +182,7 @@ export default {
         getArticle() {
             axios.post("/api/article/create", {
                 title: this.ruleForm.title,
-                text: this.text,
+                text: this.title,
                 abstract: this.ruleForm.abstract,
                 author: this.ruleForm.author,
                 category: this.ruleForm.category,
@@ -189,12 +190,11 @@ export default {
                 star: this.ruleForm.star,
                 date: this.ruleForm.date,
             }).then((res) => {
-                // console.log(res.data); 这是查看状态码
+                console.log(res.data);
                 if (res.data.code === 200) {
                     console.log(res.data);
-                    this.$message.success("发布成功");
+                    // this.$message.success("发布成功");
                     // this.$router.push("/publish");
-                    this.$refs.ruleForm.resetFields()
                 } else if (res.data.code === 500) {
                     this.$message.error("发布失败请检查");
                 }
@@ -203,7 +203,9 @@ export default {
             })
         }
     },
-    mounted() {},
+    mounted() {
+        this.getArticle()
+    },
     computed: {},
     watch: {}
 }
