@@ -1,0 +1,188 @@
+<template>
+<div class="bg">
+    <div class="box">
+        <div class="line">
+            <!-- 登录表单区域 -->
+            <el-form :model="loginForm" :rules="rules" label-width="0px" class="login-form" ref="formName">
+                <!-- 用户名 -->
+                <el-form-item prop="username">
+                    <!-- 首部图标 -->
+                    <el-input v-model="loginForm.username" prefix-icon="iconfont icon-yonghuming" placeholder="请输入用户名"></el-input>
+                </el-form-item>
+                <!-- 密码 -->
+                <el-form-item prop="password">
+                    <el-input v-model="loginForm.password" prefix-icon="iconfont icon-password" placeholder="请输入密码"></el-input>
+                </el-form-item>
+                <!-- 确认密码 -->
+                <el-form-item prop="checkPass">
+                    <el-input v-model="loginForm.checkPass" prefix-icon="iconfont icon-password" type="password" placeholder="请再次输入密码"></el-input>
+                </el-form-item>
+                <!-- 按钮区域 -->
+                <el-form-item class="btns">
+                    <el-button type="primary" @click="tzzhuce">立即登录</el-button>
+                    <el-button type="primary" @click="zhuce">立即注册</el-button>
+                </el-form-item>
+            </el-form>
+        </div>
+    </div>
+</div>
+</template>
+
+<script>
+import axios from "axios";
+export default {
+    name: "",
+    props: {},
+    data() {
+        let validatePass = (rule, value, callback) => {
+            if (value.length > 11) {
+                callback(new Error("密码不能超过11位"));
+            } else {
+                callback();
+            }
+        };
+        let validatePass2 = (rule, value, callback) => {
+            if (value != this.loginForm.password) {
+                callback(new Error("密码不相同"));
+            } else {
+                callback();
+            }
+        };
+        return {
+            //登录表单的数据绑定对象
+            loginForm: {
+                username: "",
+                password: "",
+                checkPass: "",
+                yz: "",
+            },
+            rules: {
+                username: [{
+                        required: true,
+                        message: "用户名不能为空",
+                        trigger: "blur",
+                    },
+                    {
+                        min: 2,
+                        max: 8,
+                        message: "用户名在2-8位之间",
+                        trigger: "blur",
+                    },
+                ],
+                password: [{
+                        validator: validatePass,
+                        trigger: "blur",
+                    },
+                    {
+                        required: true,
+                        message: "密码不能为空",
+                        trigger: "blur",
+                    },
+                    {
+                        min: 0,
+                        max: 15,
+                        message: "密码在6~15位",
+                        trigger: "blur",
+                    },
+                ],
+                checkPass: [{
+                        required: true,
+                        message: "两次输入密码不一致",
+                        trigger: "blur",
+                    },
+                    {
+                        validator: validatePass2,
+                        trigger: "blur",
+                    }
+                ]
+            },
+        };
+    },
+    components: {},
+    methods: {
+        //点击注册按钮
+        zhuce() {
+            this.$refs.formName.validate((valid) => {
+                if (valid) {
+                    axios
+                        .post("/api/user/register", {
+                            username: this.loginForm.username,
+                            password: this.loginForm.password,
+                        })
+                        .then((res) => {
+                            if (res.data.code === 200) {
+                                this.$message.success(res.data.message)
+                                this.$router.push("/Login")
+
+                            } else if (res.data.code === 1) {
+                                this.$message.warning(res.data.message)
+                                this.loginForm.username = ""
+                                this.loginForm.password = ""
+                                this.loginForm.checkPass = ""
+                            }
+                            console.log(res.data)
+
+                        })
+                        .catch((err) => {
+                            console.log(err)
+                        });
+                } else {
+                    console.log("验证错误！！！")
+                    return false;
+                }
+            })
+        },
+        // 点击登录跳转在注册
+        tzzhuce() {
+            this.$router.push('/login')
+        }
+    },
+    mounted() {
+
+    },
+    computed: {},
+    watch: {},
+    // 进入到当前的的路由
+    // beforeRouteEnter(to, from, next) {
+    //     console.log(to);
+    //     console.log(form);
+    //     next()
+    // }
+};
+</script>
+
+<style lang="scss" scoped>
+.bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    position: absolute;
+    // background: rgb(191, 232, 245);
+    background-image: url(https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3857728358,308581856&fm=26&gp=0.jpg);
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.line {
+    width: 500px;
+    height: 300px;
+    background: white;
+    border: 1px solid #ccc;
+}
+
+.login-form {
+    margin-top: 40px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.btns {
+    display: flex;
+    justify-content: center;
+}
+</style>

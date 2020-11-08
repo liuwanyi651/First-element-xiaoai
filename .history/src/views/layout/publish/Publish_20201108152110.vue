@@ -43,7 +43,7 @@ export default {
             })
         },
         del(hh) {
-            this.tableData = this.tableData.splice(1)
+            this.tableData = this.tableData.splice(index, 1)
         }
     },
     mounted() {

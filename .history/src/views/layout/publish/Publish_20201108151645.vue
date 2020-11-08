@@ -43,7 +43,7 @@ export default {
             })
         },
         del(hh) {
-            this.tableData = this.tableData.splice(1)
+            console.log(hh);
         }
     },
     mounted() {

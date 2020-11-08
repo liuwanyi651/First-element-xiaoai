@@ -15,7 +15,7 @@
         </el-table-column>
         <el-table-column prop="" label="操作" width="300">
             <el-button type="primary">修改</el-button>
-            <el-button type="danger" @click="del(tableData)">删除</el-button>
+            <el-button type="danger" @click="del(tableData.data)">删除</el-button>
             <el-button type="success">编辑</el-button>
         </el-table-column>
     </el-table>
@@ -43,7 +43,7 @@ export default {
             })
         },
         del(hh) {
-            this.tableData = this.tableData.splice(1)
+            console.log(hh);
         }
     },
     mounted() {

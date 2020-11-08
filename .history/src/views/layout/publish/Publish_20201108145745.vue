@@ -15,7 +15,7 @@
         </el-table-column>
         <el-table-column prop="" label="操作" width="300">
             <el-button type="primary">修改</el-button>
-            <el-button type="danger" @click="del(tableData)">删除</el-button>
+            <el-button type="danger" @click="del(item)">删除</el-button>
             <el-button type="success">编辑</el-button>
         </el-table-column>
     </el-table>
@@ -36,14 +36,14 @@ export default {
     methods: {
         already() {
             axios.get('/api/article/allArticle ').then(res => {
-                console.log(res.data.data)
+                // console.log(res.data.data)
                 this.tableData = res.data.data
             }).catch(err => {
                 console.log(err)
             })
         },
         del(hh) {
-            this.tableData = this.tableData.splice(1)
+            console.log(hh);
         }
     },
     mounted() {

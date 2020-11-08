@@ -164,8 +164,8 @@ export default {
     height: 100%;
     background-size: cover;
     position: absolute;
-    background: rgb(191, 232, 245);
-    // background-image: url(https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=163570274,3634682107&fm=26&gp=0.jpg);
+    // background: rgb(191, 232, 245);
+    background-image: url(https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=163570274,3634682107&fm=26&gp=0.jpg);
 }
 
 .box {
