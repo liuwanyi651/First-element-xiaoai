@@ -143,11 +143,11 @@ export default {
     computed: {},
     watch: {},
     // 进入到当前的的路由
-    // beforeRouteEnter(to, from, next) {
-    //     console.log(to);
-    //     console.log(form);
-    //     next()
-    // }
+    beforeRouteEnter(to, from, next) {
+        console.log(to);
+        console.log(form);
+        next()
+    }
 };
 </script>
 

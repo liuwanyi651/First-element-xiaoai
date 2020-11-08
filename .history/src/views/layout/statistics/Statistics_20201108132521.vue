@@ -1,10 +1,10 @@
 <template>
 <div>
     <div style="width:100%;height:60px;display:flex;">
-        <div style="background:#2BD5D5;" class="word">今日发布</div>
-        <div style="background:#FF99FF;" class="word">原创文章</div>
-        <div style="background:#9966FF;" class="word">新留言</div>
-        <div style="background:#00CCFF;" class="word">新消息</div>
+        <div style="background:#2BD5D5;" class="box-font">今日发布</div>
+        <div style="background:#FF8C69;" class="box-font">原创文章</div>
+        <div style="background:#668B8B;" class="box-font">新留言</div>
+        <div style="background:#00FFFF;" class="box-font">新消息</div>
     </div>
     <div style="display:flex;margin-top: 30px;">
         <div style="width:50%;">
@@ -30,6 +30,20 @@ export default {
     props: {},
     data() {
         return {
+            // arr: [],
+            // chartData: {
+            //     columns: ['分类', '数量'],
+            //     rows: [{
+            //             '分类': 'vue',
+            //             '数量': 3
+            //         },
+            //         {
+            //             '分类': 'react',
+            //             '数量': 2
+            //         }
+            //     ],
+
+            // }
             chartData: {
                 columns: ["类目", "数量"],
                 rows: []
@@ -46,6 +60,14 @@ export default {
     },
     components: {},
     methods: {
+        // getData() {
+        //     axios.get('/api/article/allArticle ').then(res => {
+        //         this.arr = res.data.data
+        //         console.log(res.data.data)
+        //     }).catch(err => {
+        //         console.log(err)
+        //     })
+        // }
         getData() {
             axios
                 .get("/api/article/allArticle")
@@ -114,7 +136,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.word {
+.box-font {
     width: 25%;
     color: white;
     text-align: center;

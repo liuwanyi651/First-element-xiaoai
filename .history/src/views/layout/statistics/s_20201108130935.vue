@@ -1,32 +1,28 @@
 <template>
 <div>
     <div style="width:100%;height:60px;display:flex;">
-        <div style="background:#2BD5D5;" class="word">今日发布</div>
-        <div style="background:#FF99FF;" class="word">原创文章</div>
-        <div style="background:#9966FF;" class="word">新留言</div>
-        <div style="background:#00CCFF;" class="word">新消息</div>
+        <div style="background:#2BD5D5;" class="box-font">今日发布</div>
+        <div style="background:#FF8C69;" class="box-font">原创文章</div>
+        <div style="background:#668B8B;" class="box-font">新留言</div>
+        <div style="background:#00FFFF;" class="box-font">新消息</div>
     </div>
-    <div style="display:flex;margin-top: 30px;">
+    <div style="display:flex;">
         <div style="width:50%;">
-            <!--饼图-->
             <ve-pie :data="chartData"></ve-pie>
         </div>
         <div style="width:50%;">
-            <!--饼图-->
             <ve-pie :data="chart"></ve-pie>
         </div>
     </div>
-    <!--瀑布图-->
     <ve-waterfall :data="Data"></ve-waterfall>
 </div>
 </template>
 
 <script>
-import axios from 'axios'
-//引入lodash
-import groupBy from 'lodash/groupBy'
+import axios from "axios";
+import groupBy from "lodash/groupBy";
 export default {
-    name: '',
+    name: "",
     props: {},
     data() {
         return {
@@ -42,7 +38,7 @@ export default {
                 columns: ["发布时间", "数量"],
                 rows: []
             }
-        }
+        };
     },
     components: {},
     methods: {
@@ -106,19 +102,16 @@ export default {
         this.yuan();
         this.time();
     },
-    computed: {
-
-    },
+    computed: {},
     watch: {}
-}
+};
 </script>
 
 <style lang="scss" scoped>
-.word {
+.box-font {
     width: 25%;
     color: white;
     text-align: center;
     line-height: 60px;
-
 }
 </style>

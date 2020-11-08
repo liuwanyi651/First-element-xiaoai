@@ -112,9 +112,6 @@ router.beforeEach((to,form,next) =>{
   //动态改变浏览器的标题
   document.title = to.meta.title
   next()
-  // let user = sessionStorage.getItem('user')
-  // if(to.path === '/login' || to.path === '/register')  next()
-  // else user ? next(): (next('/login') || next('/register'))
 })
 
 

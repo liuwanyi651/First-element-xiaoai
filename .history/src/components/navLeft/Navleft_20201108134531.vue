@@ -16,7 +16,7 @@ export default {
     data() {
         return {
             navList: [{
-                    name: '/',
+                    name: '/home',
                     navItem: '首页',
                     iPath: 'el-icon-s-home'
                 },

@@ -2,7 +2,7 @@
 <div>
     <div style="width:100%;height:60px;display:flex;">
         <div style="background:#2BD5D5;" class="word">今日发布</div>
-        <div style="background:#FF99FF;" class="word">原创文章</div>
+        <div style="background:#FF8C69;" class="word">原创文章</div>
         <div style="background:#9966FF;" class="word">新留言</div>
         <div style="background:#00CCFF;" class="word">新消息</div>
     </div>

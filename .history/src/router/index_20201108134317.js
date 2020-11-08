@@ -14,7 +14,7 @@ const routes = [{
     component: layout,
     children:[
       {
-        path: '/', 
+        path: '/home', 
         name: 'home', //这是登录后的首页
         // 除了首页 其他路由的component都用路由懒加载的方式
         component:home,
@@ -112,9 +112,6 @@ router.beforeEach((to,form,next) =>{
   //动态改变浏览器的标题
   document.title = to.meta.title
   next()
-  // let user = sessionStorage.getItem('user')
-  // if(to.path === '/login' || to.path === '/register')  next()
-  // else user ? next(): (next('/login') || next('/register'))
 })
 
 
