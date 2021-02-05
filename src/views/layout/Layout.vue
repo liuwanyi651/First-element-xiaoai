@@ -83,7 +83,7 @@ export default {
         left: 200px;
         top: 60px;
         padding: 20px;
-        background: rgb(231, 233, 236);
+        background: rgb(182, 204, 238);
     }
 }
 </style>

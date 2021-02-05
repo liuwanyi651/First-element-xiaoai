@@ -1,11 +1,15 @@
 <template>
 <div>
-    <div class="header">header</div>
+    <div class="header">
+        <navTop></navTop>
+    </div>
     <div class="container">
         <div class="aside">
-            <navLeft></navLeft>
+            <div id="asd">
+                <navLeft></navLeft>
+            </div>
         </div>
-        <div class="main" id="asd">
+        <div class="main">
             <router-view></router-view>
         </div>
     </div>
@@ -14,11 +18,14 @@
 
 <script>
 import navLeft from '../../components/navLeft/Navleft'
+import navTop from '../../components/navTop/Navtop'
 export default {
     name: '',
     props: {},
     components: {
-        navLeft
+        // 注册组件
+        navLeft,
+        navTop
     },
     data() {
         return {
@@ -40,34 +47,22 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .header {
-    height: 60px;
-    line-height: 60px;
+    height: 70px;
+    line-height: 70px;
     position: fixed;
     top: 0;
-    background: skyblue;
+    background: rgb(40, 91, 134);
     width: 100%;
     z-index: 99;
+    color: white;
 }
 
-.el-menu {
-
-    border: 0;
-}
-
-.aside>div {
-
+// 把下面撑满
+#asd ul {
     height: 1500px;
-    background: rgb(84, 92, 100);
-    // padding-right: 1px;
-
-    overflow: hidden;
-}
-
-#asd .aside>div .el-menu {
-
-    border: 0;
+    border-right: 0;
 }
 
 .container {
@@ -79,8 +74,7 @@ export default {
         position: fixed;
         left: 0;
         bottom: 0;
-        top: 60px;
-        // background: rgb(84, 92, 100);
+        top: 70px;
     }
 
     .main {
@@ -89,6 +83,7 @@ export default {
         left: 200px;
         top: 60px;
         padding: 20px;
+        background: rgb(182, 204, 238);
     }
 }
 </style>
